@@ -1,5 +1,6 @@
 package main.java.rocks.zipcode;
 
+import main.java.rocks.zipcode.Library.*;
 /******************************************************************************
  * Compilation: javac Evaluate.java Execution: java Evaluate Dependencies:
  * Stack.java
@@ -30,9 +31,12 @@ package main.java.rocks.zipcode;
  ******************************************************************************/
 
 public class Calculate {
-    public static void main(String[] args) { 
-        Stack<String> ops  = new Stack<String>();
-        Stack<Double> vals = new Stack<Double>();
+    private Stack<String> ops  = new Stack<String>();
+    private Stack<Double> vals = new Stack<Double>();
+
+    public Calculate() { }
+    
+    public void run(String[] args) { 
 
         while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
