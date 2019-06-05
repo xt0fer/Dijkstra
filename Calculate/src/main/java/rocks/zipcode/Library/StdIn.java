@@ -1,4 +1,4 @@
-package main.java.rocks.zipcode.Library;
+package rocks.zipcode.Library;
 /******************************************************************************
  *  Compilation:  javac StdIn.java
  *  Execution:    java StdIn   (interactive test of basic functionality)

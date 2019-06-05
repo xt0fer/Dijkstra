@@ -1,6 +1,7 @@
-package main.java.rocks.zipcode;
+package rocks.zipcode;
 
-import main.java.rocks.zipcode.Library.*;
+import rocks.zipcode.Library.Stack;
+
 /******************************************************************************
  * Compilation: javac Evaluate.java Execution: java Evaluate Dependencies:
  * Stack.java
@@ -36,17 +37,17 @@ public class Calculate {
 
     public Calculate() { }
     
-    public void run(String[] args) { 
+    public double run(String toEvaluate) {
 
-        while (!StdIn.isEmpty()) {
-            String s = StdIn.readString();
-            if      (s.equals("("))               ;
-            else if (s.equals("+"))    ops.push(s);
-            else if (s.equals("-"))    ops.push(s);
-            else if (s.equals("*"))    ops.push(s);
-            else if (s.equals("/"))    ops.push(s);
-            else if (s.equals("sqrt")) ops.push(s);
-            else if (s.equals(")")) {
+        String[] tokens = toEvaluate.split(" ");
+        for (String token : tokens) {
+            if      (token.equals("("))               ;
+            else if (token.equals("+"))    ops.push(token);
+            else if (token.equals("-"))    ops.push(token);
+            else if (token.equals("*"))    ops.push(token);
+            else if (token.equals("/"))    ops.push(token);
+            else if (token.equals("sqrt")) ops.push(token);
+            else if (token.equals(")")) {
                 String op = ops.pop();
                 double v = vals.pop();
                 if      (op.equals("+"))    v = vals.pop() + v;
@@ -56,8 +57,8 @@ public class Calculate {
                 else if (op.equals("sqrt")) v = Math.sqrt(v);
                 vals.push(v);
             }
-            else vals.push(Double.parseDouble(s));
+            else vals.push(Double.parseDouble(token));
         }
-        StdOut.println(vals.pop());
+        return vals.pop();
     }
 }

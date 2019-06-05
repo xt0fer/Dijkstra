@@ -1,4 +1,4 @@
-package main.java.rocks.zipcode.Library;
+package rocks.zipcode.Library;
 /******************************************************************************
  *  Compilation:  javac StdOut.java
  *  Execution:    java StdOut
