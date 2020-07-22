@@ -2,6 +2,8 @@
 
 ## Dijkstra’s two stack algorithm for arithmetic expression evaluation
 
+An example of some very elegant code.
+
 ### Stacks
 
 Oftentimes, beginner coders look at a stack and wonder what the fuss is about. Queues are
@@ -70,5 +72,6 @@ logic for handling the input:
 
 2. Each expression is entered within parenthesis and the parenthesis are perfectly balanced.
 
-Eg ( 3 * 4 ) + 5 is invalid but ( ( 3 * 4 ) + 5 ) is valid. Note space between each token.
+Eg ( 3 * 4 ) + 5 is invalid but ( ( 3 * 4 ) + 5 ) is valid. Note space between each token, and the () around
+the complete expression.
 
