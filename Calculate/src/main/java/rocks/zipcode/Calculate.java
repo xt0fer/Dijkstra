@@ -14,14 +14,14 @@ import rocks.zipcode.Library.Stack;
  * % java Evaulate ( ( 1 + sqrt ( 5 ) ) / 2.0 ) 1.618033988749895
  *
  *
- * Note: the operators, operands, and parentheses must be separated by
+ * Note: the operators, operators, and parentheses must be separated by
  * whitespace. Also, each operation must be enclosed in parentheses. For
  * example, you must write ( 1 + ( 2 + 3 ) ) instead of ( 1 + 2 + 3 ). See
  * EvaluateDeluxe.java for a fancier version.
  *
  *
  * Remarkably, Dijkstra's algorithm computes the same answer if we put each
- * operator *after* its two operands instead of *between* them.
+ * operator *after* its two operators instead of *between* them.
  *
  * % java Evaluate ( 1 ( ( 2 3 + ) ( 4 5 * ) * ) + ) 101.0
  *
@@ -32,8 +32,8 @@ import rocks.zipcode.Library.Stack;
  ******************************************************************************/
 
 public class Calculate {
-    private Stack<String> ops  = new Stack<String>();
-    private Stack<Double> vals = new Stack<Double>();
+    private Stack<String> operators = new Stack<String>();
+    private Stack<Double> operands = new Stack<Double>();
 
     public Calculate() { }
     
@@ -42,23 +42,23 @@ public class Calculate {
         String[] tokens = toEvaluate.split(" ");
         for (String token : tokens) {
             if      (token.equals("("))               ;
-            else if (token.equals("+"))    ops.push(token);
-            else if (token.equals("-"))    ops.push(token);
-            else if (token.equals("*"))    ops.push(token);
-            else if (token.equals("/"))    ops.push(token);
-            else if (token.equals("sqrt")) ops.push(token);
+            else if (token.equals("+"))    operators.push(token);
+            else if (token.equals("-"))    operators.push(token);
+            else if (token.equals("*"))    operators.push(token);
+            else if (token.equals("/"))    operators.push(token);
+            else if (token.equals("sqrt")) operators.push(token);
             else if (token.equals(")")) {
-                String op = ops.pop();
-                double v = vals.pop();
-                if      (op.equals("+"))    v = vals.pop() + v;
-                else if (op.equals("-"))    v = vals.pop() - v;
-                else if (op.equals("*"))    v = vals.pop() * v;
-                else if (op.equals("/"))    v = vals.pop() / v;
+                String op = operators.pop();
+                double v = operands.pop();
+                if      (op.equals("+"))    v = operands.pop() + v;
+                else if (op.equals("-"))    v = operands.pop() - v;
+                else if (op.equals("*"))    v = operands.pop() * v;
+                else if (op.equals("/"))    v = operands.pop() / v;
                 else if (op.equals("sqrt")) v = Math.sqrt(v);
-                vals.push(v);
+                operands.push(v);
             }
-            else vals.push(Double.parseDouble(token));
+            else operands.push(Double.parseDouble(token));
         }
-        return vals.pop();
+        return operands.pop();
     }
 }

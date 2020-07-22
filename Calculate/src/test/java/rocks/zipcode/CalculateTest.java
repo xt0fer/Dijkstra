@@ -81,5 +81,17 @@ public class CalculateTest {
         assertEquals(expected, actual, 0.0001);
     }
 
+    //( ( 5 + ( 3 * 8 ) ) – ( 2 * 7 ) )
+
+    @org.junit.Test
+    public void runFromReadme() {
+        Calculate engine = new Calculate();
+
+        String args2 = "( ( 5 + ( 3 * 8 ) ) - ( 2 * 7 ) )";
+        double expected = 15;
+        double actual = engine.run(args2);
+        assertEquals(expected, actual, 0.0001);
+    }
+
 
 }
